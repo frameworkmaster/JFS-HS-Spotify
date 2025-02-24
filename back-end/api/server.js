@@ -13,15 +13,15 @@ const PORT = 3001;
 
 app.use(cors());
 
-app.get("/", (request, response) => {
+app.get("/api/", (request, response) => {
   response.send("Só vamos trabalhar com os endpoints '/artist' e '/songs'");
 });
 
-app.get("/artists", async (request, response) => {
+app.get("/api/artists", async (request, response) => {
   response.send(await db.collection("artists").find({}).toArray());
 });
 
-app.get("/songs", async (request, response) => {
+app.get("/api/songs", async (request, response) => {
   response.send(await db.collection("songs").find({}).toArray());
 });
 
